@@ -3550,18 +3550,18 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     border-bottom-color: #ffffff;
   }
 }
-.nav-pills > li {
+.centered-nav-pills > li {
   float: left;
 }
-.nav-pills > li > a {
+.centered-nav-pills > li > a {
   border-radius: 0px;
 }
-.nav-pills > li + li {
+.centered-nav-pills > li + li {
   margin-left: 2px;
 }
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:focus {
+.centered-nav-pills > li.active > a,
+.centered-nav-pills > li.active > a:hover,
+.centered-nav-pills > li.active > a:focus {
   color: #ffffff;
   background-color: #ff9900;
 }
@@ -4360,11 +4360,11 @@ a.badge:focus {
   cursor: pointer;
 }
 a.list-group-item.active > .badge,
-.nav-pills > .active > a > .badge {
+.centered-nav-pills > .active > a > .badge {
   color: #ff9900;
   background-color: #ffffff;
 }
-.nav-pills > li > a > .badge {
+.centered-nav-pills > li > a > .badge {
   margin-left: 3px;
 }
 .jumbotron {
