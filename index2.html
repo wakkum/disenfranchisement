@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AJLabs</title>
+    <title>America's lost votes</title>
     <!-- Bootstrap -->
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
     <meta name="author" content="Al Jazeera"/>
@@ -30,16 +30,44 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link href="css/batcave.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js"></script>
 
     <!-- Styling for typing -->
     <style>
-    .type {
-      color:#ff9900;
-    }
+        .topimage {
+        background-image: url(img/header.jpg);;
+        min-height: 450px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom: 25px;
+        }
+        nav.navbar.shrink {
+        min-height: 25px;
+        }
+        nav.navbar{
+           -webkit-transition: all 0.4s ease;
+           transition: all 0.4s ease;
+        }
+        .shrinklogo{
+          transform: scale(.6);
+          -webkit-transition: all 0.4s ease;
+          transition: all 0.4s ease;
+        }
+
+        .top-tabs > li, .top-pills > li {
+          float:none;
+          display:inline-block;
+          *display:inline; /* ie7 fix */
+           zoom:1; /* hasLayout ie7 trigger */
+        }
+
+        .top-tabs, .top-pills {
+            text-align:center;
+        }
+    </style>
     </style>
 
-    <!-- D3.js -->
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 </head>
 
     <!--[if lt IE 8]>
@@ -53,35 +81,47 @@
     <![endif]-->
 
 
-    <body data-spy="scroll" data-target="navbar" data-offset="50">
+<body>
 
-<div class="container-fluid">
-  <div class="row">
-    <nav class="navbar navbar-default navbar-fixed-top">
-           <div class="navbar-header">
-             <a class="navbar-brand navbar-brand-centered" href="http://aljazeera.com" target="_blank">
-               <img alt="Al Jazeera" width="100" height="auto" src="brand.jpg">
-             </a>
-           </div>
-           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-           </div><!-- /.navbar-collapse -->
-    </nav>
-  </div>
-</div>
- <!-- INTRODUCTION/PART 1 -->
+  <nav class="navbar nav-top navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar navbar-brand navbar-brand-centered" href="http://aljazeera.com" target="_blank">
+              <img alt="Al Jazeera" width="100" height="auto" src="img/brand.jpg">
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          </div><!-- /.navbar-collapse -->
+        </div>
+  </nav>
+
+
+    <div class="topimage col-xs-12"></div>
+<!-- INTRO -->
+
+    <div id="section0" class="container">
+        <h1 class="text-center">America's lost votes</h1>
+          <p class="text-center">The United States prides itself in being the most prominent democracy in the world. However, a large number of people are excluded from the democratic voting process because they have been convicted for a crime.</p>
+          <p>
+        <h4 class="text-center"><strong>What would you like to know more about?</strong></h4>
+            <ul class="nav nav-tabs centered-nav-tabs top-tabs">
+              <li class="text-center"><a href="#section1">What is disenfranchisement</a></li>
+              <li class="text-center"><a href="#section20">Who is most affected by disenfranchisement</a></li>
+              <li class="text-center"><a href="#section30">How did it get this way?</a></li>
+            </ul>
+      </div>
+
+<!-- PART 1 -->
 
     <div id="section1" class="container">
-      <h1>America's lost votes</h1>
-        <div class="row">
-       COLUMN 8 OFFSET 2!!!!
+        <h2>What is disenfranchisement</h2>
           <p>If you get convicted in the United States, chances are you lose the right to vote in the elections. Since the United States has the largest prison population per capita in the world, this means that a significant amount of people aren't allowed to vote.</p>
-      		<p>According to independent research done by The Sentencing Project[LINK], about 6 million Americans are not allowed to vote because of this. They're disenfranchised, cut out from participating in the democracy that locked them up.</p>
-      		<p>Since each state is allowed to make its own laws regarding (ex-)felons voting, numbers of who are most affected are very different for each state.</p>
-        </div>
+          <p>According to independent research done by <a href="http://www.sentencingproject.org/" target="_blank">The Sentencing Project</a>, about 6 million Americans are not allowed to vote because of this. They're disenfranchised, cut out from participating in the democracy that locked them up.</p>
+          <p>Since each state is allowed to make its own laws regarding (ex-)felons voting, numbers of who are most affected are very different for each state.</p>
         <h4><strong>What would you like to know more about?</strong></h4>
           <div class="row">
-            <ul class="nav nav-pills">
-              <li class="type1"></li>
+            <ul class="nav centered-nav-tabs">
+              <li class="active"></li>
               <li class="type2"></li>
               <li class="type20"></li>
               <li class="type30"></li>
@@ -91,20 +131,31 @@
 
     <div id="section2" class="container">
       <h2>How many people are disenfranchised?</h2>
-    		<p>In total, almost <strong>6 million people</strong> cannot vote because they are disenfranchised. This means that 1 in 40 Americans have their voting rights taken away from them.</p>
+    		<p>In total, almost <strong>6 million people</strong> cannot vote because they are disenfranchised. This means that 1 in 40 Americans has their voting rights taken away from them.</p>
     		<p>The state of Florida alone houses more than a quarter of all disenfranchised people. The southern state has nearly 1.5 million individuals who aren't allowed to vote.</p>
     		<p>However, looking at percentage of total voting population, there are six states that stand out. In Florida, Kentucky, Mississippi, Tenessee, Virginia and Alabama more than 7 percent of the voting population cannot excercise their democratic right. This number is even higher for African Americans</p>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <h4>Top five states disenfranchised</h4> <h5>(in million people)</h5>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <h4>Top five states highest rate disenfranchisement</h4> <h5>(% of voting-age population)</h5>
+        </div>
+      </div>
+      <div class="row">
 
-          <div class="row">
-            <div id="wrapper"></div>
-          </div>
+                <div class="col-xs-12 col-sm-12 col-md-3" id="dis_total"></div>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-md-offset-4" id="dis_per"></div>
+      </div>
+
       <h4><strong>What would you like to know more about?</strong></h4>
-          <ul class="nav nav-pills" >
+          <ul class="nav centered-nav-pills" >
             <li><a href="#section3">What are the differences between the states?</a></li>
             <li><a href="#section20">Who is most affected by disenfranchisement?</a></li>
             <li><a href="#section30">How did it get this way?</a></li>
           </ul>
     </div>
+
 
     <div id="section3" class="container">
         <h2>Different state, different law</h2>
@@ -226,44 +277,54 @@
 
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <!--
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-    -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/noframework.waypoints.min.js"></script>
+    <script src="js/typed.js"></script>
+
+    <script>
+      $(window).scroll(function() {
+    if ($(document).scrollTop() > 50) {
+      $('.nav-top').addClass('shrink');
+      $('.navbar-brand').addClass('shrinklogo');
+    } else {
+      $('.nav-top').removeClass('shrink');
+      $(".navbar-brand").removeClass("shrinklogo");
+    }
+  });
+    </script>
+
 
     <!-- Typed.js -->
-    <script src="js/typed.js"></script>
 
     <script>
     $(function(){
       $(".type1").typed({
-    strings: ["<a href='#section2'>How many people are affected?</a>"],
+    strings: ["^20 <a href='#section2'>How many people are affected?</a>"],
     contentType: 'html',
     showCursor: false,
-    typeSpeed: 0.1,
+    typeSpeed: 20,
     });
 
     $(".type2").typed({
-      strings: ["<a href='#section3'>What are the differences between the states?</a>"],
+      strings: ["^2250<a href='#section3'>What are the differences between the states?</a>"],
       contentType: 'html',
       showCursor: false,
-      typeSpeed: 0.1
+      typeSpeed: 20,
       });
 
     $(".type20").typed({
-      strings: ["<a href='#section20'>Who suffer most from disenfranchisement?</a>"],
+      strings: ["^4950<a href='#section20'>Who suffers most from disenfranchisement?</a>"],
       contentType: 'html',
       showCursor: false,
-      typeSpeed: 0.1
+      typeSpeed: 20,
       });
 
     $(".type30").typed({
-      strings: ["<a href='#section30'>How did it get this way?</a>"],
+      strings: ["^7600<a href='#section30'>How did it get this way?</a>"],
       contentType: 'html',
       showCursor: false,
-      typeSpeed: 0.1
+      typeSpeed: 20,
       });
 
     $(".type40").typed({
@@ -278,11 +339,12 @@
     <!-- D3 graphs -->
 
     <script>
+    // Total disenfranchisement number
     		var categories= ['Florida','Mississipi','Kentucky','Virginia','Alabama'];
 
     		var people = [209,190,190,180,170];
 
-    		var colors = ['#0000b4','#0082ca','#0094ff','#0094ff','#0094ff'];
+    		var colors = ['#FF9900','FF9900','#FF9900','#FF9900','#FF9900'];
 
     		var grid = d3.range(0).map(function(i){
     			return {'x1':0,'y1':0,'x2':0,'y2':50};
@@ -305,13 +367,13 @@
     						.domain([0,categories.length])
     						.range(colors);
 
-    		var canvas = d3.select('#wrapper')
+    		var canvas = d3.select('#dis_total')
     						.append('svg')
     						.attr({'width':400,'height':400});
 
     		var grids = canvas.append('g')
     						  .attr('id','grid')
-    						  .attr('transform','translate(150,10)')
+    						  .attr('transform','translate(80,10)')
     						  .selectAll('line')
     						  .data(grid)
     						  .enter()
@@ -335,20 +397,20 @@
     				.scale(yscale)
     				.tickSize(2)
     				.tickFormat(function(d,i){ return categories[i]; })
-    				.tickValues(d3.range(17));
+    				.tickValues(d3.range(5));
 
     		var y_xis = canvas.append('g')
-    						  .attr("transform", "translate(150,30)")
+    						  .attr("transform", "translate(80,30)")
     						  .attr('id','yaxis')
     						  .call(yAxis);
 
     		var x_xis = canvas.append('g')
-    						  .attr("transform", "translate(150,400)")
+    						  .attr("transform", "translate(80,400)")
     						  .attr('id','xaxis')
     						  .call(xAxis);
 
     		var chart = canvas.append('g')
-    							.attr("transform", "translate(150,30)")
+    							.attr("transform", "translate(80,30)")
     							.attr('id','bars')
     							.selectAll('rect')
     							.data(people)
@@ -374,6 +436,103 @@
     							.attr({'x':function(d) {return xscale(d)-100; },'y':function(d,i){ return yscale(i)+35; }})
     							.text(function(d){ return d+" million"; }).style({'fill':'#fff','font-size':'1em'});
 
+// Percentage
+
+var categories1= ['Florida','Mississipi','Kentucky','Virginia','Alabama'];
+
+var people1 = [209,190,190,180,170];
+
+var colors = ['#FF9900','FF9900','#FF9900','#FF9900','#FF9900'];
+
+var grid = d3.range(0).map(function(i){
+  return {'x1':0,'y1':0,'x2':0,'y2':50};
+});
+
+var tickVals = grid.map(function(d,i){
+  if(i>0){ return i*10; }
+  else if(i===0){ return "500";}
+});
+
+var xscale = d3.scale.linear()
+        .domain([0,300])
+        .range([0,300]);
+
+var yscale = d3.scale.linear()
+        .domain([0,categories1.length])
+        .range([0,300]);
+
+var colorScale = d3.scale.quantize()
+        .domain([0,categories1.length])
+        .range(colors);
+
+var canvas = d3.select('#dis_per')
+        .append('svg')
+        .attr({'width':400,'height':400});
+
+var grids = canvas.append('g')
+          .attr('id','grid')
+          .attr('transform','translate(80,10)')
+          .selectAll('line')
+          .data(grid)
+          .enter()
+          .append('line')
+          .attr({'x1':function(d,i){ return i*30; },
+             'y1':function(d){ return d.y1; },
+             'x2':function(d,i){ return i*30; },
+             'y2':function(d){ return d.y2; },
+          })
+          .style({'stroke':'#adadad','stroke-width':'5px'});
+
+var	xAxis = d3.svg.axis();
+  xAxis
+    .orient('bottom')
+    .scale(xscale)
+    .tickValues(tickVals);
+
+var	yAxis = d3.svg.axis();
+  yAxis
+    .orient('left')
+    .scale(yscale)
+    .tickSize(2)
+    .tickFormat(function(d,i){ return categories1[i]; })
+    .tickValues(d3.range(5));
+
+var y_xis = canvas.append('g')
+          .attr("transform", "translate(80,30)")
+          .attr('id','yaxis')
+          .call(yAxis);
+
+var x_xis = canvas.append('g')
+          .attr("transform", "translate(80,400)")
+          .attr('id','xaxis')
+          .call(xAxis);
+
+var chart = canvas.append('g')
+          .attr("transform", "translate(80,30)")
+          .attr('id','bars')
+          .selectAll('rect')
+          .data(people1)
+          .enter()
+          .append('rect')
+          .attr('height',25)
+          .attr({'x':0,'y':function(d,i){ return yscale(i)+19; }})
+          .style('fill',function(d,i){ return colorScale(i); })
+          .attr('width',function(d){ return 0; });
+
+
+var transit = d3.select("svg").selectAll("rect")
+            .data(people1)
+            .transition()
+            .duration(1000)
+            .attr("width", function(d) {return xscale(d); });
+
+var transitext = d3.select('#bars')
+          .selectAll('text')
+          .data(people1)
+          .enter()
+          .append('text')
+          .attr({'x':function(d) {return xscale(d)-100; },'y':function(d,i){ return yscale(i)+35; }})
+          .text(function(d){ return d+" million"; }).style({'fill':'#fff','font-size':'1em'});
 
     	</script>
 
